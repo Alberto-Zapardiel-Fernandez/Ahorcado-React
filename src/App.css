@@ -9,29 +9,29 @@
   margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  height: 80%;
-  border: 1px solid white;
 }
 
 .imagen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 }
 
 .juego {
-  border: 1px solid white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.ahorcado {
-  margin-top: 25px;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+.btn_separated {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 10px;
+}
 
+.btn_separated:hover {
+  background-color: whitesmoke;
+  color: #333;
+  transition: all 0.3s ease;
 }
