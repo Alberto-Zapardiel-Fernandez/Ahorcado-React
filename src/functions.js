@@ -18,6 +18,15 @@ const numeroAleatorio = () => {
 }
 export const palabra = listaPalabras[numeroAleatorio()].toUpperCase()
 
+export const revisaFinal = (win, setTurn) => {
+  if (win === palabra.length) {
+    setTurn(12)
+    return true
+  } else {
+    return false
+  }
+}
+
 export const revisaTurno = valorTurno => {
   switch (valorTurno) {
     case 0:
