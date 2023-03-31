@@ -1,24 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Ahorcado from './Components/Ahorcado.jsx'
 import LetrasIntroducidas from './Components/LetrasIntroducidas.jsx'
+import Palabra from './Components/Palabra.jsx'
 import { revisaTurno, palabra, limpiar } from './functions.js'
 
 const App = () => {
+  let i = 0
   const [turno, setTurno] = useState(0)
   const [letraIntroducida, setLetraIntroducida] = useState('')
   const [letrasIntroducidas, setLetrasIntroducidas] = useState([])
+  const [winner, setWinner] = useState(0)
+
+  useEffect(() => {
+    revisaFinal(winner)
+  }, [winner])
+
+  const revisaFinal = win => {
+    if (win === palabra.length) {
+      setTurno(12)
+    }
+  }
 
   const comprobarEnPalabra = letra => {
     if (palabra.includes(letra)) {
-      //TODO: Ver que salgan todas las letras bien en el string o transformarlo en array y buscar sus posiciones para luego revelarlas
-      console.log('La palabra: ' + palabra + ' tiene la ' + letra)
+      palabra.split('').map(l => {
+        if (l === letra) {
+          i += 1
+        }
+      })
     } else {
       //TODO: Poner mensaje de que la palabra no contiene la letra
       console.log('La palabra no tiene la ' + letraIntroducida)
       setTurno(turno + 1)
       return
     }
+    setWinner(i + winner)
   }
 
   const comprobarLetra = letraIntroducida => {
@@ -40,7 +57,6 @@ const App = () => {
       <h1>Ahorcado</h1>
       <div className='tablero'>
         <div className='imagen'>
-          {/* //TODO: Poner la imagen y fin del juego */}
           <Ahorcado imagen={revisaTurno(turno)}></Ahorcado>
           <button onClick={() => setTurno(turno + 1)}>Pasa turno</button>
         </div>
@@ -65,8 +81,10 @@ const App = () => {
               Comprobar letra
             </button>
           </div>
-          {/* //TODO: Crear componente con las letras underlined pero ocultas */}
-          <div className='textoResolucion'>{`Palabra: ${palabra.split('')}`}</div>
+          <Palabra
+            palabra={palabra.split('')}
+            letrasIntroducidas={letrasIntroducidas}
+          ></Palabra>
         </div>
       </div>
     </div>
