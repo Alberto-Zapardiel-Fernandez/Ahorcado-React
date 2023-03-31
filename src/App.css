@@ -35,3 +35,19 @@
   color: #333;
   transition: all 0.3s ease;
 }
+
+.letraOculta {
+  font-size: 40px;
+  margin: 10px;
+  color: #242424;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+.letraVisible {
+  color: white;
+  font-size: 40px;
+  margin: 10px;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
