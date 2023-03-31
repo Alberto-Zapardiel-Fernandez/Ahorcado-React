@@ -9,7 +9,9 @@ import siete from './assets/7.jpg'
 import ocho from './assets/8.jpg'
 import nueve from './assets/9.jpg'
 import diez from './assets/10.jpg'
-const listaPalabras = ['pepino', 'cabeza', 'fregona', 'fecha', 'alberto']
+import once from './assets/11.jpg'
+import win from './assets/win.jpg'
+const listaPalabras = ['pepino', 'cabeza', 'fregona', 'fecha', 'alberto', 'pepa', 'meme']
 
 const numeroAleatorio = () => {
   return Math.floor(Math.random() * listaPalabras.length)
@@ -17,9 +19,6 @@ const numeroAleatorio = () => {
 export const palabra = listaPalabras[numeroAleatorio()].toUpperCase()
 
 export const revisaTurno = valorTurno => {
-  if (valorTurno > 10) {
-    console.log('Fin')
-  }
   switch (valorTurno) {
     case 0:
       return cero
@@ -43,9 +42,13 @@ export const revisaTurno = valorTurno => {
       return nueve
     case 10:
       return diez
+    case 11:
+      return once
+    case 12:
+      return win
 
     default:
-      break
+      return once
   }
 }
 
