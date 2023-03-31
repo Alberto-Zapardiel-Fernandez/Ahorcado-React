@@ -58,7 +58,6 @@ const App = () => {
       <div className='tablero'>
         <div className='imagen'>
           <Ahorcado imagen={revisaTurno(turno)}></Ahorcado>
-          <button onClick={() => setTurno(turno + 1)}>Pasa turno</button>
         </div>
         <div className='juego'>
           {letrasIntroducidas.length > 0 ? <LetrasIntroducidas>{letrasIntroducidas}</LetrasIntroducidas> : <p></p>}
